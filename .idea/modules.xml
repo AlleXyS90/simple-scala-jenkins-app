@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/simple-scala-jenkins-app.iml" filepath="$PROJECT_DIR$/.idea/modules/simple-scala-jenkins-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simple-scala-jenkins-app-build.iml" filepath="$PROJECT_DIR$/.idea/modules/simple-scala-jenkins-app-build.iml" />
     </modules>
   </component>
 </project>
