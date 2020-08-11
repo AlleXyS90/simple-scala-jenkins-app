@@ -1,6 +1,6 @@
-import scala.concurrent.{Await, Future}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
+import scala.concurrent.{Await, Future}
 import scala.util.Random
 
 object Main {
@@ -12,11 +12,13 @@ object Controllers {
     println("APP STARTED")
 
     val f1 = Future {
-      printMsg
+      val sum = getSum(randomNumber, randomNumber)
+      println(s"Future 1: sum of A and B = ${sum}")
+      sum
     }
 
     val f2 = Future {
-      printNumber
+      printSeq
     }
 
     val futures = for {
@@ -29,19 +31,12 @@ object Controllers {
 
     println(s"futures result is ${results}")
     Thread.sleep(3000)
-    println("application closed")
+    println("APP CLOSED")
   }
 
-  def printMsg() = {
-     Thread.sleep(1000)
-    println("future 1: this is a message")
-    true
-  }
+  def getSum(a: Int, b: Int) = a + b
 
-  def printNumber() = {
-    println(s"future 2: number ${getRandomNumber}")
-    true
-  }
+  def randomNumber(): Int = 20 + Random.nextInt(10)
 
-  def getRandomNumber(): Int = 20 + Random.nextInt(10)
+  def printSeq() = println(s"Future 2: sequence = ${Seq(1, 2, 3, 4, 5).mkString(", ")}")
 }
