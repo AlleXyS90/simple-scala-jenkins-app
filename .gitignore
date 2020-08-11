@@ -1,2 +1,5 @@
 # Project exclude paths
 /out/
+/target/
+/project/project/target/config-classes/
+/project/target/

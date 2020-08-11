@@ -1,6 +1,9 @@
+package test.scala
+
+import main.scala.Controllers
 import org.scalatest.funspec.AnyFunSpec
 
-class SetSpec extends AnyFunSpec {
+class ControllerSpec extends AnyFunSpec {
 
   describe("## A Set") {
     describe("# when empty") {
@@ -15,10 +18,21 @@ class SetSpec extends AnyFunSpec {
       }
     }
 
-    describe("# sum of all elements") {
+    describe("# sum of elements") {
       it("should be greather than first element") {
         val seq = Seq(1, 2, 3, 4)
         assert(seq.head < seq.sum)
+      }
+    }
+  }
+
+  describe("## Controller") {
+    describe("# sum of two elements [test getSum() method]") {
+      val x = Controllers.randomNumber
+      val y = Controllers.randomNumber
+      val sumOf = Controllers.getSum(x, y)
+      it("should be equal") {
+        assert(sumOf == x + y)
       }
     }
   }
