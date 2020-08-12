@@ -3,7 +3,7 @@
 
 pipeline {
     environment {
-      buildPath = "C:/Users/tudor.alexandru/.jenkins/workspaces/Scala Simple App - Pipeline/target/scala-2.13/simple-scala-jenkins-app_2.13-0.1.jar"
+      buildPath = "C:/Users/tudor.alexandru/.jenkins/workspace/Scala Simple App - Pipeline/target/scala-2.13/simple-scala-jenkins-app_2.13-0.1.jar"
    }
 
   agent any
