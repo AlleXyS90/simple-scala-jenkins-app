@@ -2,6 +2,10 @@
 /* this works without requiring the 'sbt plugin'. */
 
 pipeline {
+    environment {
+      buildPath = "./workspaces/Scala Simple App - Pipeline/target/scala-2.13/simple-scala-jenkins-app_2.13-0.1.jar"
+   }
+
   agent any
 
   stages {
@@ -33,8 +37,6 @@ pipeline {
     }
 
     stage('Deploy') {
-      def buildPath = "./workspaces/Scala Simple App - Pipeline/target/scala-2.13/simple-scala-jenkins-app_2.13-0.1.jar"
-
       steps {
          echo 'Deploying...'
         // bat "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt package"
