@@ -39,7 +39,7 @@ pipeline {
     stage('Docker Publish') {
       steps {
         echo "Publish on Docker..."
-        bat "${tool name: 'sbt', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt docker:publishLocal"
+        bat "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt docker:publishLocal"
       }
     }
 
