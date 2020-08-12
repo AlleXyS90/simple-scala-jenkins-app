@@ -3,7 +3,7 @@
 
 pipeline {
   environment {
-     buildPath = "C:\Users/tudor.alexandru\.jenkins\workspace\Scala Simple App - Pipeline\target\scala-2.13\simple-scala-jenkins-app_2.13-0.1.jar"
+     buildPath = "C:/Users/tudor.alexandru/.jenkins/workspace/Scala Simple App - Pipeline/target/scala-2.13/simple-scala-jenkins-app_2.13-0.1.jar"
   }
 
   agent any
@@ -40,7 +40,7 @@ pipeline {
       steps {
          echo 'Deploying...'
         // bat "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt package"
-         bat "move \"${buildPath}\" \"C:\Users\tudor.alexandru\.jenkins\deployments\simple-scala-jenkins-app_2.13-0.1.jar\""
+         bat "move \"${buildPath}\" \"C:/Users/tudor.alexandru/.jenkins/deployments/simple-scala-jenkins-app_2.13-0.1.jar\""
       }
     }
 
