@@ -36,15 +36,20 @@ pipeline {
       }
     }
 
-    stage('Deploy') {
+    stage('Docker Publish') {
       steps {
-         echo 'Deploying...'
-        // bat "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt package"
-         bat "move \"${buildPath}\" \"C:/Users/tudor.alexandru/.jenkins/deployments/simple-scala-jenkins-app_2.13-0.1.jar\""
-
+        echo "Publish on Docker..."
+        bat "${tool name: 'sbt', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt docker:publishLocal"
       }
     }
 
+    //stage('Deploy') {
+    //  steps {
+     //    echo 'Deploying...'
+    //     // bat "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt package"
+    //     bat "move \"${buildPath}\" \"C:/Users/tudor.alexandru/.jenkins/deployments/simple-scala-jenkins-app_2.13-0.1.jar\""
+   //   }
+   // }
 
     //stage('Deploy - Production') {
     //     steps {
@@ -52,12 +57,4 @@ pipeline {
     //   }
     //}
   }
-    //The post will always notify you regarding the job status by email
-        post {
-            always {
-                mail to: 'tudor.alexandru@emag.ro',
-                subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
-                body: "${env.BUILD_URL} has result ${currentBuild.result}"
-            }
-        }
 }
