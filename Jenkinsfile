@@ -32,10 +32,14 @@ pipeline {
       }
     }
 
+    def buildPath = "./workspaces/Scala Simple App - Pipeline/target/scala-2.13/simple-scala-jenkins-app_2.13-0.1.jar"
+
     stage('Deploy') {
       steps {
          echo 'Deploying...'
         // bat "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt package"
+         echo "Build path is ${buildPath}"
+         bat "MOVE ${buildPath} ./deployments"
       }
     }
 
