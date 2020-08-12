@@ -2,9 +2,9 @@
 /* this works without requiring the 'sbt plugin'. */
 
 pipeline {
-    environment {
-      buildPath = "C:/Users/tudor.alexandru/.jenkins/workspace/Scala Simple App - Pipeline/target/scala-2.13/simple-scala-jenkins-app_2.13-0.1.jar"
-   }
+  environment {
+     buildPath = "C:/Users/tudor.alexandru/.jenkins/workspace/Scala Simple App - Pipeline/target/scala-2.13/simple-scala-jenkins-app_2.13-0.1.jar"
+  }
 
   agent any
 
@@ -41,7 +41,7 @@ pipeline {
          echo 'Deploying...'
         // bat "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt package"
          echo "Build path is ${buildPath}"
-         bat "MOVE \"${buildPath}\" \"C:/Users/tudor.alexandru/.jenkins/deployments\""
+         bat "COPY \"${buildPath}\" \"C:/Users/tudor.alexandru/.jenkins/deployments\" /Y"
       }
     }
 
