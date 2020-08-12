@@ -46,7 +46,7 @@ pipeline {
             flattenFiles: true,
             includes: buildPath,
             targetLocation: "C:/Users/tudor.alexandru/.jenkins/deployments"
-         ])
+         )])
       }
     }
 
