@@ -25,7 +25,24 @@ pipeline {
         echo "Packaging..."
         bat "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt package"
       }
+      post {
+        success {
+            echo "Jar created."
+        }
+      }
     }
 
+    stage('Deploy') {
+      steps {
+         echo 'Deploying...'
+        // bat "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt package"
+      }
+    }
+
+    //stage('Deploy - Production') {
+    //     steps {
+    //     bat './deploy production'
+    //   }
+    //}
   }
 }

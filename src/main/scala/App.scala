@@ -1,5 +1,5 @@
-import main.scala.Controllers
+import main.scala.Controller
 
 object App {
-  def main(args: Array[String]) = Controllers.startUp()
+  def main(args: Array[String]) = Controller.startUp()
 }

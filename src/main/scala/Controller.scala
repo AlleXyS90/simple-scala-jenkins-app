@@ -5,7 +5,7 @@ import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, Future}
 import scala.util.Random
 
-object Controllers {
+object Controller {
   def startUp(): Unit = {
     println("APP STARTED")
 
@@ -34,7 +34,7 @@ object Controllers {
 
   def getSum(a: Int, b: Int) = a + b
 
-  def randomNumber(): Int = 20 + Random.nextInt(10)
+  def randomNumber(): Int = Random.nextInt(100)
 
   def printSeq() = println(s"Future 2: sequence = ${Seq(1, 2, 3, 4, 5).mkString(", ")}")
 }

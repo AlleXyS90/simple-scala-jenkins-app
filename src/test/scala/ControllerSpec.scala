@@ -1,6 +1,6 @@
 package test.scala
 
-import main.scala.Controllers
+import main.scala.Controller
 import org.scalatest.funspec.AnyFunSpec
 
 class ControllerSpec extends AnyFunSpec {
@@ -28,9 +28,9 @@ class ControllerSpec extends AnyFunSpec {
 
   describe("## Controller") {
     describe("# sum of two elements [test getSum() method]") {
-      val x = Controllers.randomNumber
-      val y = Controllers.randomNumber
-      val sumOf = Controllers.getSum(x, y)
+      val x = Controller.randomNumber
+      val y = Controller.randomNumber
+      val sumOf = Controller.getSum(x, y)
       it("should be equal") {
         assert(sumOf == x + y)
       }
