@@ -41,7 +41,7 @@ pipeline {
          echo 'Deploying...'
         // bat "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt package"
          echo "Build path is ${buildPath}"
-         bat "MOVE ${buildPath} ./deployments"
+         bat "MOVE \"${buildPath}\" \"./deployments\""
       }
     }
 
