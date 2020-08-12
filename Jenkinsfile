@@ -45,6 +45,13 @@ pipeline {
       }
     }
 
+
+    //stage('Deploy - Production') {
+    //     steps {
+    //     bat './deploy production'
+    //   }
+    //}
+  }
     //The post will always notify you regarding the job status by email
         post {
             always {
@@ -53,11 +60,4 @@ pipeline {
                 body: "${env.BUILD_URL} has result ${currentBuild.result}"
             }
         }
-
-    //stage('Deploy - Production') {
-    //     steps {
-    //     bat './deploy production'
-    //   }
-    //}
-  }
 }
